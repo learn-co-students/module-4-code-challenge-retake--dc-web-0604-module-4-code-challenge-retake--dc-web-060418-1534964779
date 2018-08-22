@@ -2,11 +2,12 @@ import React from "react";
 import Transaction from "./Transaction";
 
 const TransactionsList = ({ transactions, category }) => {
-  //craete condition for all
-  let newtransactions = transactions.filter(
-    transaction => transaction.category === category
-  );
-
+  let newtransactions;
+  category !== "All"
+    ? (newtransactions = transactions.filter(
+        transaction => transaction.category === category
+      ))
+    : (newtransactions = transactions);
   return (
     <table className="ui celled striped padded table">
       <tbody>
